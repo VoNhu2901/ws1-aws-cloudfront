@@ -1,0 +1,134 @@
+[
+{
+	"uri": "//localhost:1313/",
+	"title": "CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "Working with CloudFront Overall In this lab, you\u0026rsquo;ll learn the basics and practice of CloudFront.\nImplement a CloudFront which use S3 bucket as an Origin with default TTL. Configure how long the content is cached at the edge by create a custom Policy Cache and Behavior. Grant CloudFront distribution permission to read the S3 origin Security S3 with Origin Access Control (OAC). Content Introduction Preparation CloudFront Distribution with S3 Origin CloudFront Cache Configuration and Invalidation Improve Security with OAC Clean up resources "
+},
+{
+	"uri": "//localhost:1313/4-cloudfrontcache/4.1-configurecache/",
+	"title": "Configure cache",
+	"tags": [],
+	"description": "",
+	"content": "\rConfigure how long the content is cached at the browser\nCreate a Cache Policy Go to Amazon CloudFront service management console Click on Policies. Click on Create cache policy. At the Create cache policy page. Fill the information in the form At the Name field, enter custom-cache At the Minimum TTL, Maximum TTL, Default TTL enter 2, 30, 20 Leave everything as default Click \u0026ldquo;Create\u0026rdquo; button Create Behavior Back to Amazon CloudFront service management console. Click on Distribution. Click on the Behavior tab. Click on Create behavior. At the Create behavior page. Fill the information in the form Click on Path pattern enter *.html Click on Origin and origin groups select S3 bucket and Cache key and origin requests select custom-cache Leave everything as default Click on \u0026ldquo;Create behavior\u0026rdquo; button After 20 seconds, CloudFront will display new content (by default of AWS 24 hours -\u0026gt; change to 20 seconds)\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.1-creates3/2.1.1-creates3/",
+	"title": "Create S3",
+	"tags": [],
+	"description": "",
+	"content": "Create S3 Go to S3 service management console\nClick Buckets. Click Create bucket. At the Create S3 page. Fill information required in “Create bucket” form\nIn the Bucket name field, enter ws1-cloudfront. In the Object Ownership field, choose ACLs disabled. Untick Block all public access. Tick on warning box to confirm allow public access. I acknowledge that the current settings might result in this bucket and the objects within becoming public\nClick on Create bucket button to create it. Create successfully "
+},
+{
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "AWS CloudFront is a content delivery network (CDN) service provided by Amazon Web Services (AWS). It\u0026rsquo;s designed to accelerate the delivery of web content — such as images, videos, and static files — to users by caching the content at edge locations around the world. This reduces latency and improves the overall user experience.\nBy using CloudFront, you get the following advantages that traditional methods do not have:\nFaster content delivery. CloudFront caches content at edge locations, reducing the time it takes for users to access your content. Global coverage. With a vast network of edge locations, CloudFront can deliver content to users worldwide with low latency. Scalability. CloudFront automatically scales to handle traffic spikes, ensuring consistent performance. Security. CloudFront integrates with AWS security services, such as AWS Shield and AWS WAF, to protect your content from DDoS attacks and other threats. Cost-effective. CloudFront offers a pay-as-you-go pricing model, allowing you to pay only for the data transfer and requests you use. "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.1-creates3/",
+	"title": "Preparing S3",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will need to create an S3 bucket.\nIntroduce Amazon Simple Storage Service (S3) is an object storage service provided by Amazon Web Services (AWS). It allows you to store and retrieve any amount of data from anywhere on the web. Data in S3 is organized into \u0026ldquo;buckets\u0026rdquo; and \u0026ldquo;objects,\u0026rdquo; where an object can be any type of data like text files, images, videos, or backup files.\nAdvantages of Amazon S3: High Scalability: S3 is designed to automatically scale to handle any amount of data, from a few megabytes to petabytes.\nHigh Durability and Availability: Data in S3 is stored with high durability, as multiple copies are backed up across different geographic regions. AWS guarantees 99.999999999% (11 nines) durability and up to 99.99% availability.\nSecurity: S3 offers various security options such as encryption of data at rest and in transit, along with detailed access control through IAM (Identity and Access Management).\nIntegration with Other AWS Services: S3 integrates seamlessly with other AWS services like EC2, Lambda, CloudFront, and analytics tools like Athena, making it easy to build complex applications.\nCost-Effective: With a pay-as-you-go pricing model, S3 provides a flexible and cost-efficient storage solution, especially with different storage classes like S3 Standard, S3 Intelligent-Tiering, and S3 Glacier for cold data storage needs.\nEase of Management and Use: S3 offers a web management interface, SDKs, and APIs, making it easy to manage buckets and objects. Users can access, edit, and share data flexibly.\nData Resilience: S3 provides features like versioning, backups, and data recovery, ensuring that data is always protected and can be recovered when needed.\nTo learn more about S3, you can refer to the website below described\nAbout Amazon S3 Content Create S3 Grant read access Upload file to the bucket "
+},
+{
+	"uri": "//localhost:1313/3-cloudfronts3/3.1-setupdistribution/",
+	"title": "Set up a CloudFront Distribution",
+	"tags": [],
+	"description": "",
+	"content": " Go to Amazon CloudFront service management console. Click on Distribution. Click Create distribution. At the Create distribution page Click on Origin domain to select S3 bucket. Leave every as default. Click the Create distribution. A distribution will be created afterward. Created successully!!! It’ll take about 5 to 10 minutes for the distribution to change from in progress to deployed state.\n"
+},
+{
+	"uri": "//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/",
+	"title": "Enable block public access",
+	"tags": [],
+	"description": "",
+	"content": "\rDelete Bucket policy from the S3 bucket and enable block public access.\nDelete Bucket Policy Go to S3 service management console Select your bucket and in the Permission tab Select Bucket Policy Delete to remove the bucket policy\nThe Bucket Policy should be empty now.\nEnable Block public access Select Block public access and turn on Block all public access setting.\nChoose Edit. Tick on Block all public access.\nClick on Save changes. Testing on browser Now if you try to visit the HTML page, you will get an Access Denied error as anonymous access.\nTry opening link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Try opening link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
+},
+{
+	"uri": "//localhost:1313/5-improvesecurityoac/5.2-grantpermissionread/",
+	"title": "Grant CloudFront distribution permission to read the S3 origin",
+	"tags": [],
+	"description": "",
+	"content": "\rDelete Bucket policy from the S3 bucket and enable block public access.\nGo to Amazon CloudFront service management console. Click on Distribution and click on your distribution. Click on Origins. Choose your origin. Click on Edit. At the Edit origin page Select Origin access control settings (recommended). Click on Create new OAC. Create Control setting, enter Name: OAC-VN-S3. Click on Create. Click on Save changes. Create successfully!!! Giving CloudFront permission to access the S3 bucket.\nGo to CDN, click Edit of origin Click on “Copy policy”. Go to S3 bucket, paste this code to Bucket Policy in S3. { \u0026#34;Version\u0026#34;: \u0026#34;2008-10-17\u0026#34;, \u0026#34;Id\u0026#34;: \u0026#34;PolicyForCloudFrontPrivateContent\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;AllowCloudFrontServicePrincipal\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: { \u0026#34;Service\u0026#34;: \u0026#34;cloudfront.amazonaws.com\u0026#34; }, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::ws1-cloudfront/*\u0026#34;, \u0026#34;Condition\u0026#34;: { \u0026#34;StringEquals\u0026#34;: { \u0026#34;AWS:SourceArn\u0026#34;: \u0026#34;arn:aws:cloudfront::905418478295:distribution/E2YGKQ4RKCO9LA\u0026#34; } } } ] } Click on Save changes Now if we access page from the S3 Object URL, we still cannot access because we only allow access from CloudFront.\nTry opening link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html We can access test.html from CloudFront.\nTry opening link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.1-creates3/2.1.2-grantread/",
+	"title": "Grant read access",
+	"tags": [],
+	"description": "",
+	"content": "Grant read access to everyone Click on Bucket Click on the previous ws1-cloudfront bucket. At the ws1-cloudfront page Choose Permissions tab. Scroll to Bucket policy and choose \u0026ldquo;Edit\u0026rdquo; button. At the Edit bucket policy page Copy Bucket ARN to paste on Generator Click Policy generator to generate a policy. At the AWS Policy Generator page Fill the information in the form as below. Choose \u0026ldquo;Generate\u0026rdquo; button then will display a pop-up with policy and copy them. Add a more statement arn:aws:s3:::ws1-cloudfront/* on script as below\n{ \u0026#34;Id\u0026#34;: \u0026#34;Policy1725252919233\u0026#34;, \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;Stmt1725252905058\u0026#34;, \u0026#34;Action\u0026#34;: [ \u0026#34;s3:GetObject\u0026#34;, \u0026#34;s3:ListBucket\u0026#34; ], \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Resource\u0026#34;: [ \u0026#34;arn:aws:s3:::ws1-cloudfront\u0026#34;, \u0026#34;arn:aws:s3:::ws1-cloudfront/*\u0026#34; ], \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34; } ] } Back to the Edit bucket policy page Paste that policy Click Save changes to save information. "
+},
+{
+	"uri": "//localhost:1313/4-cloudfrontcache/4.2-invalidate/",
+	"title": "Invalidate in CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "\rInvalidate the content in CloudFront to force the removal of objects\nBack to Amazon CloudFront service management console.\nSelect your distribution and go to Invalidations tab. Create an invalidation request. At the Create invalidation page:\nPaste: /test.html\r/cf-test-image.png Click on \u0026ldquo;Create invalidation\u0026rdquo; button Now let’s update the HTML page in the S3 bucket. We are going to update the test html version to 4. Save the file locally and then upload to your S3 bucket.\nUpdate file test.html from 2 to 4. Reupload file to S3. Open test.html from S3 URL, the content should be version 4. And the content in return from CloudFront should be version 4 as well. To summarize, content updates are now reflected immediately on S3 and the CDN every 20 seconds, rather than every 24 hours.\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/",
+	"title": "Preparation",
+	"tags": [],
+	"description": "",
+	"content": "\rYou need to create an S3 bucket with your website or application files. to perform this lab.\nContent Create an S3 bucket "
+},
+{
+	"uri": "//localhost:1313/3-cloudfronts3/3.2-testing/",
+	"title": "Testing",
+	"tags": [],
+	"description": "",
+	"content": "Testing In the General tab, you can view the domain name for the distribution. When you access this domain, your request is routed to the nearest edge location. And if the content is not in the edge cache or regional cache, it is forwarded to origin which is this case is our S3 bucket.\nCopy url + test.html Try open link: https://d2s62os8tlfgfh.cloudfront.net/test.html The response is cached at the edge location for serving other requests.\nUpdate HTML Now let’s update the HTML page in the S3 bucket. We are going to update the test html version to 2. Save the file locally and then upload to your S3 bucket. Update the HTML object to S3 bucket (version 3 -\u0026gt; version 2) Now if you open the page using S3 bucket URL in a different browser tab, it renders the second version of the page. This is because the content is getting directly from S3 Reupload test.html to ws1-cloudfront bucket Open test.html by S3 Object URL: On the other hand, if you refresh the CloudFront page in the browser we opened it before, it renders the cached content, which is version 3. The content is reused from cache expires for this page and image. By default, CloudFront caches S3 objects for 24 hours\nOpen test.html by CloudFront it renders the cached content (content was not updated)\nNotes: In this lab, we set up an S3 bucket as an origin and we configured a CloudFront distribution.\nThere are two issues that we identified with this setup.\nThe S3 bucket is public. Content is cached for 24 hours. Look at controlling the cache duration in next lab!\n"
+},
+{
+	"uri": "//localhost:1313/3-cloudfronts3/",
+	"title": "CloudFront Distribution with S3 Origin",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will set up a CloudFront Distribution, using the previously prepared S3 bucket as the Origin, and configure it with a default TTL (Time to Live).\nContent 3.1. Set up a CloudFront Distribution 3.2. Testing\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.1-creates3/2.1.3-uploadfile/",
+	"title": "Upload file to the bucket",
+	"tags": [],
+	"description": "",
+	"content": "Upload images and html file to the bucket At the ws1-cloudfront page Choose Upload button. At the Upload page. Choose Add files button Select files Attachments: test.html, cf-test-image.png\nLet’s view the test.html page and make sure we can see the page. Copy url Open it in browser "
+},
+{
+	"uri": "//localhost:1313/4-cloudfrontcache/",
+	"title": "CloudFront Cache Configuration and Invalidation",
+	"tags": [],
+	"description": "",
+	"content": "In this lab, we are going to continue with the previous demo (CloudFront Distribution with S3 Origin)\nConfigure how long the content is cached at the edge by create a custom Policy Cache and Behavior. Content Invalidation – Force removal of content from CloudFront so that the new settings can take effect. Content: Configure cache Invalidate in CloudFront "
+},
+{
+	"uri": "//localhost:1313/5-improvesecurityoac/",
+	"title": "Improve Security with OAC",
+	"tags": [],
+	"description": "",
+	"content": "With the current set up, the S3 bucket is public. So, anybody can directly come and view the content. In this lab, we will:\nRemove anonymous access and allow only request from CloudFront. Grant CloudFront distribution permission to read the S3 origin Delete Bucket policy from the S3 bucket and block public access.\nContent: Enable block public access Grant CloudFront distribution permission to read the S3 origin "
+},
+{
+	"uri": "//localhost:1313/6-cleanup/",
+	"title": "Clean up resources",
+	"tags": [],
+	"description": "",
+	"content": "We will take the following steps to delete the resources we created in this exercise.\nDelete S3 bucket Go to S3 service management console\nClick on the S3 bucket we created for this lab. (Example: ws1-cloudfront)\nClick Empty.\nEnter permanently delete, then click Empty to proceed to delete the object in the bucket.\nClick Exit.\nAfter deleting all objects in the bucket, click Delete Enter the name of the S3 bucket, then click Delete bucket to proceed with deleting the S3 bucket. Delete CloudFront Go to Amazon CloudFront service management console\nClick on the Distributions we created for this lab. (Example: E2YGKQ4RKCO9LA)\nClick Disable.\nPop-up will displayed, then click Disable to proceed to disable it. Click on Distributions.\nClick Behavior tab.\nClick Delete. Click on Policies tab.\nClick Custom policies.\nClick Delete. Click on Origin access tab.\nSelect your origin.\nClick Delete. Finally, back to Distributions\nSelect your distribution\nClick Delete. Thanks for watching!!!\n"
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

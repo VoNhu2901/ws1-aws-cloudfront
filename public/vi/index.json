@@ -1,0 +1,134 @@
+[
+{
+	"uri": "//localhost:1313/vi/",
+	"title": "CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "Làm việc với CloudFront Tổng quan Trong bài thực hành này, bạn sẽ học các kiến thức cơ bản và thực hành về CloudFront.\nTriển khai một CloudFront sử dụng S3 bucket làm Origin với thời gian TTL mặc định. Cấu hình thời gian lưu trữ nội dung tại edge bằng cách tạo Chính sách Cache và Hành vi tùy chỉnh. Cấp quyền cho CloudFront distribution để đọc Origin S3 bảo mật bằng cách sử dụng Origin Access Control (OAC). Nội dung Giới thiệu Các bước chuẩn bị CloudFront Distribution với S3 Origin Cấu hình và vô hiệu hóa bộ nhớ đệm CloudFront Cải thiện bảo mật với OAC Dọn dẹp tài nguyên "
+},
+{
+	"uri": "//localhost:1313/vi/4-cloudfrontcache/4.1-configurecache/",
+	"title": "Cấu hình bộ đệm",
+	"tags": [],
+	"description": "",
+	"content": "\rĐịnh cấu hình thời gian lưu trữ nội dung ở trình duyệt\nTạo một Cache Policy Truy cập vào giao diện quản trị dịch vụ Amazon CloudFront Bấm vào Policies. Bấm vào Create cache policy. Tại trang Create cache policy. Điền thông tin vào mẫu Tại trường Name nhập custom-cache Tại Minimum TTL, Maximum TTL, Default TTL nhập 2, 30, 20 Để mọi thứ như mặc định Nhấn nút \u0026ldquo;Create\u0026rdquo; Tạo Behavior Quay lại Bảng điều khiển quản lý dịch vụ Amazon CloudFront. Bấm vào Distribution. Bấm vào tab Behavior. Bấm vào Create behavior. Tại trang Create behavior. Điền thông tin vào mẫu Click vào Path pattern nhập *.html. Nhấp vào Origin and origin groups chọn S3 bucket và Cache key and origin requests chọn custom-cache. Để mọi thứ như mặc định. Bấm vào nút \u0026ldquo;Create behavior\u0026rdquo;. Sau 20 giây, CloudFront sẽ hiển thị nội dung mới (theo mặc định của AWS là 24 giờ -\u0026gt; đổi thành 20 giây)\n"
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.1-creates3/",
+	"title": "Chuẩn bị S3",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ cần tạo một S3 bucket.\nGiới thiệu Amazon Simple Storage Service (S3) là một dịch vụ lưu trữ đối tượng (object storage) của Amazon Web Services (AWS). Nó cho phép bạn lưu trữ và truy xuất bất kỳ lượng dữ liệu nào từ bất kỳ đâu trên web. Dữ liệu trong S3 được tổ chức dưới dạng các \u0026ldquo;buckets\u0026rdquo; (thùng) và các \u0026ldquo;objects\u0026rdquo; (đối tượng), trong đó một đối tượng có thể là bất kỳ loại dữ liệu nào như tệp văn bản, hình ảnh, video, hoặc các tệp sao lưu.\nƯu điểm của Amazon S3: Khả năng mở rộng cao: S3 được thiết kế để tự động mở rộng để xử lý bất kỳ lượng dữ liệu nào, từ vài megabyte đến hàng petabyte.\nĐộ bền và tính khả dụng cao: Dữ liệu trong S3 được lưu trữ với độ bền cao, nhờ việc sao lưu nhiều bản sao trên nhiều khu vực địa lý khác nhau. AWS đảm bảo độ bền 99.999999999% (11 chín) và tính khả dụng lên đến 99.99%.\nBảo mật: S3 cung cấp nhiều tùy chọn bảo mật như mã hóa dữ liệu trong khi lưu trữ (encryption at rest) và mã hóa khi truyền tải (encryption in transit), cùng với kiểm soát truy cập chi tiết thông qua IAM (Identity and Access Management).\nTích hợp với các dịch vụ AWS khác: S3 tích hợp mạnh mẽ với các dịch vụ AWS khác như EC2, Lambda, CloudFront, và các công cụ phân tích dữ liệu như Athena, giúp dễ dàng xây dựng các ứng dụng phức tạp.\nTính kinh tế: Với mô hình thanh toán theo lượng sử dụng (pay-as-you-go), S3 là một giải pháp lưu trữ có chi phí linh hoạt và hiệu quả, đặc biệt với các lớp lưu trữ khác nhau như S3 Standard, S3 Intelligent-Tiering, S3 Glacier cho các nhu cầu lưu trữ dữ liệu lạnh (cold data).\nDễ dàng quản lý và sử dụng: S3 cung cấp giao diện quản lý web, SDK và API giúp dễ dàng quản lý các bucket và objects. Người dùng có thể truy cập, chỉnh sửa, và chia sẻ dữ liệu một cách linh hoạt.\nKhả năng phục hồi dữ liệu: S3 cung cấp các tính năng như phiên bản hoá (versioning), sao lưu và khôi phục dữ liệu, đảm bảo dữ liệu luôn được bảo vệ và có thể phục hồi nếu cần.\nĐể tìm hiểu thêm về S3, bạn có thể tham khảo trang web bên dưới mô tả\nGiới thiệu về Amazon S3 Nội dung Tạo S3 Cấp quyền truy cập đọc Tải tệp lên bucket "
+},
+{
+	"uri": "//localhost:1313/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "AWS CloudFront là dịch vụ mạng phân phối nội dung (CDN) do Amazon Web Services (AWS) cung cấp. Nó được thiết kế để tăng tốc độ phân phối nội dung web — chẳng hạn như hình ảnh, video và tệp tĩnh — tới người dùng bằng cách lưu nội dung vào bộ nhớ đệm ở các vị trí biên trên toàn thế giới. Điều này làm giảm độ trễ và cải thiện trải nghiệm người dùng tổng thể.\nVới việc sử dụng CloudFront, bạn sẽ có được những ưu điểm sau:\nCung cấp nội dung nhanh hơn. CloudFront lưu nội dung vào bộ nhớ đệm ở các vị trí biên, giúp giảm thời gian người dùng truy cập nội dung của bạn. Phạm vi phủ sóng toàn cầu. Với mạng lưới vị trí biên rộng lớn, CloudFront có thể cung cấp nội dung cho người dùng trên toàn thế giới với độ trễ thấp. Khả năng mở rộng. CloudFront tự động thay đổi quy mô để xử lý lưu lượng truy cập tăng đột biến, đảm bảo hiệu suất nhất quán. Bảo mật. CloudFront tích hợp với các dịch vụ bảo mật của AWS, chẳng hạn như AWS Shield và AWS WAF, để bảo vệ nội dung của bạn khỏi các cuộc tấn công DDoS và các mối đe dọa khác. Tiết kiệm chi phí. CloudFront cung cấp mô hình giá theo mức sử dụng, cho phép bạn chỉ trả tiền cho dữ liệu chuyển giao và các yêu cầu bạn sử dụng. "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.1-creates3/2.1.1-creates3/",
+	"title": "Tạo S3 ",
+	"tags": [],
+	"description": "",
+	"content": "Tạo S3 Truy cập giao diện quản trị dịch vụ S3 Chọn Buckets. Chọn Create bucket. Tại trang Create S3. Điền thông tin cần thiết vào biểu mẫu \u0026ldquo;Create bucket\u0026rdquo; Trong trường Bucket name, nhập ws1-cloudfront. Trong trường Object Ownership, chọn ACLs disabled. Bỏ chọn Block all public access. Đánh dấu vào ô cảnh báo để xác nhận cho phép truy cập công khai. I acknowledge that the current settings might result in this bucket and the objects within becoming public\nNhấp vào nút Create bucket để tạo nó. Tạo thành công "
+},
+{
+	"uri": "//localhost:1313/vi/3-cloudfronts3/3.1-setupdistribution/",
+	"title": "Thiết lập một CloudFront Distribution",
+	"tags": [],
+	"description": "",
+	"content": " Truy cập vào giao diện quản trị của dịch vụ Amazon CloudFront. Bấm vào Distribution. Bấm vào Create distribution. Tại trang Create distribution Bấm vào Origin domain để chọn S3 bucket. Để mặc định mọi thứ. Bấm vào Create distribution. Một bản distribution sẽ được tạo ra sau đó. Đã tạo thành công!!! Sẽ mất khoảng 5 đến 10 phút để quá trình phân phối chuyển từ trạng thái đang tiến hành sang trạng thái đã triển khai.\n"
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/",
+	"title": "Các bước chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "\rBạn cần tạo sẵn S3 bucket để thực hiện bài thực hành này.\nNội dung Tạo S3 bucket "
+},
+{
+	"uri": "//localhost:1313/vi/5-improvesecurityoac/5.2-grantpermissionread/",
+	"title": "Cấp quyền CloudFront Distribution để đọc S3 origin",
+	"tags": [],
+	"description": "",
+	"content": "\rXóa chính sách Nhóm khỏi nhóm S3 và bật chặn quyền truy cập công khai.\nTruy cập bảng điều khiển quản lý dịch vụ Amazon CloudFront. Nhấp vào Distribution và nhấp vào distribution của bạn. Bấm vào Origins. Chọn origin của bạn. Bấm vào Edit. Tại trang Edit origin Chọn Origin access control settings (recommended). Bấm vào Create new OAC. Tạo cài đặt Control, nhập Name: OAC-VN-S3. Bấm vào Create. Bấm vào Save changes. Tạo thành công!!! Cấp cho CloudFront quyền truy cập vào S3 bucket.\nTruy cập CDN click Edit origin. Click vào “Chính sách sao chép”. Truy cập S3 Bucket, dán đoạn code này vào Bucket Policy trong S3. { \u0026#34;Version\u0026#34;: \u0026#34;2008-10-17\u0026#34;, \u0026#34;Id\u0026#34;: \u0026#34;PolicyForCloudFrontPrivateContent\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;AllowCloudFrontServicePrincipal\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: { \u0026#34;Service\u0026#34;: \u0026#34;cloudfront.amazonaws.com\u0026#34; }, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::ws1-cloudfront/*\u0026#34;, \u0026#34;Condition\u0026#34;: { \u0026#34;StringEquals\u0026#34;: { \u0026#34;AWS:SourceArn\u0026#34;: \u0026#34;arn:aws:cloudfront::905418478295:distribution/E2YGKQ4RKCO9LA\u0026#34; } } } ] } Bấm vào Save changes Bây giờ nếu chúng ta truy cập trang từ URL đối tượng S3, chúng ta vẫn không thể truy cập vì chúng ta chỉ cho phép truy cập từ CloudFront.\nThử mở link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Chúng ta có thể truy cập test.html từ CloudFront.\nThử mở link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.1-creates3/2.1.2-grantread/",
+	"title": "Cấp quyền truy cập đọc",
+	"tags": [],
+	"description": "",
+	"content": "Cấp quyền truy cập đọc cho mọi người Nhấp vào Bucket Nhấp vào ws1-cloudfront bucket đã tạo trước đó. Tại trang ws1-cloudfront Chọn tab Permissions. Cuộn đến Bucket policy và chọn nút \u0026ldquo;Edit\u0026rdquo;. Tại trang Edit bucket policy Copy Bucket ARN để dán vào Generator Nhấp vào Policy generator để tạo chính sách. Tại trang AWS Policy Generator Điền thông tin vào biểu mẫu như bên dưới. Chọn nút \u0026ldquo;Generate\u0026rdquo; sau đó sẽ hiển thị một cửa sổ bật lên có chính sách và sao chép chúng. Thêm một câu lệnh khác arn:aws:s3:::ws1-cloudfront/* trên tập lệnh như bên dưới\n{ \u0026#34;Id\u0026#34;: \u0026#34;Policy1725252919233\u0026#34;, \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;Stmt1725252905058\u0026#34;, \u0026#34;Action\u0026#34;: [ \u0026#34;s3:GetObject\u0026#34;, \u0026#34;s3:ListBucket\u0026#34; ], \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Resource\u0026#34;: [ \u0026#34;arn:aws:s3:::ws1-cloudfront\u0026#34;, \u0026#34;arn:aws:s3:::ws1-cloudfront/*\u0026#34; ], \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34; } ] } Quay lại trang Edit bucket policy Dán chính sách đó Bấm vào Save changes để lưu thông tin. "
+},
+{
+	"uri": "//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/",
+	"title": "Cho phép chặn quyền truy cập công khai",
+	"tags": [],
+	"description": "",
+	"content": "\rXóa chính sách Nhóm khỏi nhóm S3 và bật chặn quyền truy cập công khai.\nXóa Bucket Policy Truy cập vào bảng điều khiển quản lý dịch vụ S3 Chọn nhóm của bạn và trong tab Quyền Chọn Chính sách nhóm Xóa để xóa chính sách bucket policy Chính sách nhóm bây giờ sẽ trống.\nBật Chặn quyền truy cập công khai Chọn Block public access và bật cài đặt Block all public access setting.\nChọn Edit. Tích vào Block all public access.\nBấm vào Save changes. Kiểm tra trên trình duyệt Bây giờ nếu bạn cố truy cập trang HTML, bạn sẽ gặp lỗi Truy cập bị từ chối dưới dạng truy cập ẩn danh.\nThử mở link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Thử mở link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
+},
+{
+	"uri": "//localhost:1313/vi/3-cloudfronts3/3.2-testing/",
+	"title": "Thử nghiệm",
+	"tags": [],
+	"description": "",
+	"content": "Thử nghiệm Trong tab Chung, bạn có thể xem tên miền của bản phân phối. Khi bạn truy cập miền này, yêu cầu của bạn sẽ được chuyển đến vị trí biên gần nhất. Và nếu nội dung không có trong bộ đệm cạnh hoặc bộ đệm khu vực, thì nội dung đó sẽ được chuyển tiếp đến origin, trường hợp này là bộ chứa S3 của chúng ta.\nSao chép url + test.html Thử mở link: https://d2s62os8tlfgfh.cloudfront.net/test.html Phản hồi được lưu trữ ở vị trí biên để phục vụ các yêu cầu khác.\nCập nhật HTML Bây giờ hãy cập nhật trang HTML trong nhóm S3. Chúng ta sẽ cập nhật phiên bản html thử nghiệm lên 2. Lưu tệp cục bộ rồi tải lên vùng lưu trữ S3 của bạn. Cập nhật đối tượng HTML lên nhóm S3 (phiên bản 3 -\u0026gt; phiên bản 2) Bây giờ, nếu bạn mở trang bằng URL bộ chứa S3 trong tab trình duyệt khác, nó sẽ hiển thị phiên bản thứ hai của trang. Điều này là do nội dung được lấy trực tiếp từ S3 Tải lại test.html lên nhóm ws1-cloudfront Mở test.html bằng URL S3 Object: Mặt khác, nếu bạn làm mới trang CloudFront trong trình duyệt mà chúng ta đã mở trước đó, nó sẽ hiển thị nội dung được lưu trong bộ nhớ đệm, đây là phiên bản 3. Nội dung được sử dụng lại từ bộ nhớ đệm hết hạn cho trang và hình ảnh này. Theo mặc định, CloudFront lưu trữ các đối tượng S3 trong 24 giờ\nMở test.html bằng CloudFront nó hiển thị nội dung được lưu trong bộ nhớ cache (nội dung không được cập nhật)\nLưu ý: Trong phòng thí nghiệm này, chúng ta đã thiết lập bộ chứa S3 làm origin và chúng ta đã định cấu hình bản CloudFront Distribution.\nCó hai vấn đề mà chúng ta đã xác định với thiết lập này.\nNhóm S3 ở chế độ công khai. Nội dung được lưu trữ trong 24 giờ. Hãy xem việc kiểm soát thời lượng bộ nhớ đệm trong bài thực hành tiếp theo!\n"
+},
+{
+	"uri": "//localhost:1313/vi/4-cloudfrontcache/4.2-invalidate/",
+	"title": "Vô hiệu hóa trong CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "\rVô hiệu hóa nội dung trong CloudFront để buộc xóa đối tượng\nQuay lại Bảng điều khiển quản lý dịch vụ Amazon CloudFront.\nChọn bản distribution của bạn và chuyển đến tab Invalidations. Tạo một yêu cầu vô hiệu. Tại trang Create invalidation:\nDán: /test.html\r/cf-test-image.png Bấm vào nút \u0026ldquo;Create invalidation\u0026rdquo; Bây giờ hãy cập nhật trang HTML trong nhóm S3. Chúng ta sẽ cập nhật phiên bản html thử nghiệm lên 4. Lưu tệp cục bộ rồi tải lên S3 bucket của bạn.\nCập nhật file test.html từ 2 lên 4. Tải lại tập tin lên S3. Mở test.html từ URL S3, nội dung phải là phiên bản 4. Và nội dung trả về từ CloudFront cũng phải là phiên bản 4. Tóm lại, các cập nhật nội dung hiện được phản ánh ngay lập tức trên S3 và CDN cứ sau 20 giây, thay vì cứ sau 24 giờ.\n"
+},
+{
+	"uri": "//localhost:1313/vi/3-cloudfronts3/",
+	"title": "CloudFront Distribution với S3 Origin",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thiết lập CloudFront Distribution, sử dụng nhóm S3 đã chuẩn bị trước đó làm origin và định cấu hình nó với TTL (Thời gian tồn tại) mặc định.\nNội dung 3.1. Thiết lập một CloudFront Distribution 3.2. Thử nghiệm\n"
+},
+{
+	"uri": "//localhost:1313/vi/2-prerequiste/2.1-creates3/2.1.3-uploadfile/",
+	"title": "Tải tệp lên bucket",
+	"tags": [],
+	"description": "",
+	"content": "Tải hình ảnh và tệp html lên bucket Tại trang ws1-cloudfront Chọn nút Upload. Tại trang Upload.\nChọn nút Add files Chọn tập tin Hãy xem trang test.html và đảm bảo chúng ta có thể nhìn thấy trang đó.\nSao chép địa chỉ Mở nó trong trình duyệt "
+},
+{
+	"uri": "//localhost:1313/vi/4-cloudfrontcache/",
+	"title": "Cấu hình và vô hiệu hóa bộ đệm CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "Trong bài thực hành này, chúng ta sẽ tiếp tục với demo trước đó (CloudFront Distribution với S3 Origin)\nĐịnh cấu hình thời lượng nội dung được lưu vào bộ nhớ đệm ở biên bằng cách tạo Hành vi và bộ nhớ đệm chính sách tùy chỉnh. Vô hiệu hóa nội dung – Buộc xóa nội dung khỏi CloudFront để cài đặt mới có hiệu lực. Nội dung: Cấu hình bộ đệm Vô hiệu hóa trong CloudFront "
+},
+{
+	"uri": "//localhost:1313/vi/5-improvesecurityoac/",
+	"title": "Cải thiện bảo mật với OAC",
+	"tags": [],
+	"description": "",
+	"content": "Với thiết lập hiện tại, S3 bucket là công khai. Vì vậy, bất cứ ai cũng có thể trực tiếp đến xem nội dung. Trong phòng thử nghiệm này, chúng ta sẽ:\nXóa quyền truy cập ẩn danh và chỉ cho phép yêu cầu từ CloudFront. Cấp quyền CloudFront Distribution để đọc S3 origin Xóa chính sách Nhóm khỏi nhóm S3 và chặn quyền truy cập công khai.\nNội dung: Cho phép chặn quyền truy cập công khai Cấp quyền CloudFront Distribution để đọc S3 origin "
+},
+{
+	"uri": "//localhost:1313/vi/6-cleanup/",
+	"title": "Dọn dẹp tài nguyên  ",
+	"tags": [],
+	"description": "",
+	"content": "Chúng ta sẽ tiến hành các bước sau để xóa các tài nguyên chúng ta đã tạo trong bài thực hành này.\nXóa S3 bucket Đi tới bảng điều khiển quản lý dịch vụ S3\nNhấp vào S3 bucket mà chúng ta đã tạo cho phòng thí nghiệm này. (Ví dụ: ws1-cloudfront)\nBấm vào Empty.\nNhập permanently delete, sau đó nhấn Empty. để tiến hành xóa đối tượng trong nhóm.\nBấm Exit.\nSau khi xóa hết các đối tượng trong nhóm nhấn Delete Nhập tên của S3 bucket, sau đó nhấp vào Delete bucket để tiến hành xóa S3 bucket. Xóa CloudFront Đi tới bảng điều khiển quản lý dịch vụ Amazon CloudFront\nNhấp vào Distributions mà chúng ta đã tạo cho phòng thí nghiệm này. (Ví dụ: E2YGKQ4RKCO9LA)\nBấm vào Disable.\nPop-up sẽ hiện ra, bạn nhấn Disable để tiến hành tắt. Bấm vào Distributions.\nBấm vào tab Behavior.\nBấm vào Delete. Bấm vào tab Policies.\nBấm vào Custom policies.\nBấm vào Delete. Bấm vào tab Origin access\nChọn origin của bạn.\nBấm Delete. Cuối cùng quay lại Distributions\nChọn distribution của bạn\nBấm Delete. Cảm ơn đã xem!!!\n"
+},
+{
+	"uri": "//localhost:1313/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
