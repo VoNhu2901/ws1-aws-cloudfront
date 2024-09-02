@@ -21,6 +21,13 @@
 	"content": "Create S3 Go to S3 service management console\nClick Buckets. Click Create bucket. At the Create S3 page. Fill information required in “Create bucket” form\nIn the Bucket name field, enter ws1-cloudfront. In the Object Ownership field, choose ACLs disabled. Untick Block all public access. Tick on warning box to confirm allow public access. I acknowledge that the current settings might result in this bucket and the objects within becoming public\nClick on Create bucket button to create it. Create successfully "
 },
 {
+	"uri": "//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/",
+	"title": "Enable block public access",
+	"tags": [],
+	"description": "",
+	"content": "\rDelete Bucket policy from the S3 bucket and enable block public access.\nDelete Bucket Policy Go to S3 service management console Select your bucket and in the Permission tab Select Bucket Policy Click Delete to remove the bucket policy\nThe Bucket Policy should be empty now.\nEnable Block public access Select Block public access and turn on Block all public access setting.\nChoose Edit. Tick on Block all public access.\nClick on Save changes. Testing on browser Now if you try to visit the HTML page, you will get an Access Denied error as anonymous access.\nTry opening link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Try opening link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
+},
+{
 	"uri": "//localhost:1313/1-introduce/",
 	"title": "Introduction",
 	"tags": [],
@@ -40,13 +47,6 @@
 	"tags": [],
 	"description": "",
 	"content": " Go to Amazon CloudFront service management console. Click on Distribution. Click Create distribution. At the Create distribution page Click on Origin domain to select S3 bucket. Leave every as default. Click the Create distribution. A distribution will be created afterward. Created successully!!! It’ll take about 5 to 10 minutes for the distribution to change from in progress to deployed state.\n"
-},
-{
-	"uri": "//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/",
-	"title": "Enable block public access",
-	"tags": [],
-	"description": "",
-	"content": "\rDelete Bucket policy from the S3 bucket and enable block public access.\nDelete Bucket Policy Go to S3 service management console Select your bucket and in the Permission tab Select Bucket Policy Delete to remove the bucket policy\nThe Bucket Policy should be empty now.\nEnable Block public access Select Block public access and turn on Block all public access setting.\nChoose Edit. Tick on Block all public access.\nClick on Save changes. Testing on browser Now if you try to visit the HTML page, you will get an Access Denied error as anonymous access.\nTry opening link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Try opening link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
 },
 {
 	"uri": "//localhost:1313/5-improvesecurityoac/5.2-grantpermissionread/",

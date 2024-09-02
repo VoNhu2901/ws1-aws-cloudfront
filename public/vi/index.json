@@ -14,6 +14,13 @@
 	"content": "\rĐịnh cấu hình thời gian lưu trữ nội dung ở trình duyệt\nTạo một Cache Policy Truy cập vào giao diện quản trị dịch vụ Amazon CloudFront Bấm vào Policies. Bấm vào Create cache policy. Tại trang Create cache policy. Điền thông tin vào mẫu Tại trường Name nhập custom-cache Tại Minimum TTL, Maximum TTL, Default TTL nhập 2, 30, 20 Để mọi thứ như mặc định Nhấn nút \u0026ldquo;Create\u0026rdquo; Tạo Behavior Quay lại Bảng điều khiển quản lý dịch vụ Amazon CloudFront. Bấm vào Distribution. Bấm vào tab Behavior. Bấm vào Create behavior. Tại trang Create behavior. Điền thông tin vào mẫu Click vào Path pattern nhập *.html. Nhấp vào Origin and origin groups chọn S3 bucket và Cache key and origin requests chọn custom-cache. Để mọi thứ như mặc định. Bấm vào nút \u0026ldquo;Create behavior\u0026rdquo;. Sau 20 giây, CloudFront sẽ hiển thị nội dung mới (theo mặc định của AWS là 24 giờ -\u0026gt; đổi thành 20 giây)\n"
 },
 {
+	"uri": "//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/",
+	"title": "Cho phép chặn quyền truy cập công khai",
+	"tags": [],
+	"description": "",
+	"content": "\rXóa Bucket policy khỏi nhóm S3 và bật chặn quyền truy cập công khai.\nXóa Bucket Policy Truy cập vào bảng điều khiển quản lý dịch vụ S3 Chọn nhóm của bạn và trong tab Permission Chọn Bucket Policy Bấm vào Delete để xóa chính sách bucket policy Bucket Policy bây giờ sẽ trống.\nBật Block public access Chọn Block public access và bật cài đặt Block all public access setting.\nChọn Edit. Tích vào Block all public access.\nBấm vào Save changes. Kiểm tra trên trình duyệt Bây giờ nếu bạn cố truy cập trang HTML, bạn sẽ gặp lỗi Truy cập bị từ chối dưới dạng truy cập ẩn danh.\nThử mở link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Thử mở link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
+},
+{
 	"uri": "//localhost:1313/vi/2-prerequiste/2.1-creates3/",
 	"title": "Chuẩn bị S3",
 	"tags": [],
@@ -53,7 +60,7 @@
 	"title": "Cấp quyền CloudFront Distribution để đọc S3 origin",
 	"tags": [],
 	"description": "",
-	"content": "\rXóa chính sách Nhóm khỏi nhóm S3 và bật chặn quyền truy cập công khai.\nTruy cập bảng điều khiển quản lý dịch vụ Amazon CloudFront. Nhấp vào Distribution và nhấp vào distribution của bạn. Bấm vào Origins. Chọn origin của bạn. Bấm vào Edit. Tại trang Edit origin Chọn Origin access control settings (recommended). Bấm vào Create new OAC. Tạo cài đặt Control, nhập Name: OAC-VN-S3. Bấm vào Create. Bấm vào Save changes. Tạo thành công!!! Cấp cho CloudFront quyền truy cập vào S3 bucket.\nTruy cập CDN click Edit origin. Click vào “Chính sách sao chép”. Truy cập S3 Bucket, dán đoạn code này vào Bucket Policy trong S3. { \u0026#34;Version\u0026#34;: \u0026#34;2008-10-17\u0026#34;, \u0026#34;Id\u0026#34;: \u0026#34;PolicyForCloudFrontPrivateContent\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;AllowCloudFrontServicePrincipal\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: { \u0026#34;Service\u0026#34;: \u0026#34;cloudfront.amazonaws.com\u0026#34; }, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::ws1-cloudfront/*\u0026#34;, \u0026#34;Condition\u0026#34;: { \u0026#34;StringEquals\u0026#34;: { \u0026#34;AWS:SourceArn\u0026#34;: \u0026#34;arn:aws:cloudfront::905418478295:distribution/E2YGKQ4RKCO9LA\u0026#34; } } } ] } Bấm vào Save changes Bây giờ nếu chúng ta truy cập trang từ URL đối tượng S3, chúng ta vẫn không thể truy cập vì chúng ta chỉ cho phép truy cập từ CloudFront.\nThử mở link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Chúng ta có thể truy cập test.html từ CloudFront.\nThử mở link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
+	"content": "\rXóa Bucket policy khỏi nhóm S3 và bật chặn quyền truy cập công khai.\nTruy cập bảng điều khiển quản lý dịch vụ Amazon CloudFront. Nhấp vào Distribution và nhấp vào distribution của bạn. Bấm vào Origins. Chọn origin của bạn. Bấm vào Edit. Tại trang Edit origin Chọn Origin access control settings (recommended). Bấm vào Create new OAC. Tạo cài đặt Control, nhập Name: OAC-VN-S3. Bấm vào Create. Bấm vào Save changes. Tạo thành công!!! Cấp cho CloudFront quyền truy cập vào S3 bucket.\nTruy cập CDN click Edit origin. Click vào “Chính sách sao chép”. Truy cập S3 Bucket, dán đoạn code này vào Bucket Policy trong S3. { \u0026#34;Version\u0026#34;: \u0026#34;2008-10-17\u0026#34;, \u0026#34;Id\u0026#34;: \u0026#34;PolicyForCloudFrontPrivateContent\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;AllowCloudFrontServicePrincipal\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: { \u0026#34;Service\u0026#34;: \u0026#34;cloudfront.amazonaws.com\u0026#34; }, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::ws1-cloudfront/*\u0026#34;, \u0026#34;Condition\u0026#34;: { \u0026#34;StringEquals\u0026#34;: { \u0026#34;AWS:SourceArn\u0026#34;: \u0026#34;arn:aws:cloudfront::905418478295:distribution/E2YGKQ4RKCO9LA\u0026#34; } } } ] } Bấm vào Save changes Bây giờ nếu chúng ta truy cập trang từ URL đối tượng S3, chúng ta vẫn không thể truy cập vì chúng ta chỉ cho phép truy cập từ CloudFront.\nThử mở link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Chúng ta có thể truy cập test.html từ CloudFront.\nThử mở link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
 },
 {
 	"uri": "//localhost:1313/vi/2-prerequiste/2.1-creates3/2.1.2-grantread/",
@@ -61,13 +68,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Cấp quyền truy cập đọc cho mọi người Nhấp vào Bucket Nhấp vào ws1-cloudfront bucket đã tạo trước đó. Tại trang ws1-cloudfront Chọn tab Permissions. Cuộn đến Bucket policy và chọn nút \u0026ldquo;Edit\u0026rdquo;. Tại trang Edit bucket policy Copy Bucket ARN để dán vào Generator Nhấp vào Policy generator để tạo chính sách. Tại trang AWS Policy Generator Điền thông tin vào biểu mẫu như bên dưới. Chọn nút \u0026ldquo;Generate\u0026rdquo; sau đó sẽ hiển thị một cửa sổ bật lên có chính sách và sao chép chúng. Thêm một câu lệnh khác arn:aws:s3:::ws1-cloudfront/* trên tập lệnh như bên dưới\n{ \u0026#34;Id\u0026#34;: \u0026#34;Policy1725252919233\u0026#34;, \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;Stmt1725252905058\u0026#34;, \u0026#34;Action\u0026#34;: [ \u0026#34;s3:GetObject\u0026#34;, \u0026#34;s3:ListBucket\u0026#34; ], \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Resource\u0026#34;: [ \u0026#34;arn:aws:s3:::ws1-cloudfront\u0026#34;, \u0026#34;arn:aws:s3:::ws1-cloudfront/*\u0026#34; ], \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34; } ] } Quay lại trang Edit bucket policy Dán chính sách đó Bấm vào Save changes để lưu thông tin. "
-},
-{
-	"uri": "//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/",
-	"title": "Cho phép chặn quyền truy cập công khai",
-	"tags": [],
-	"description": "",
-	"content": "\rXóa chính sách Nhóm khỏi nhóm S3 và bật chặn quyền truy cập công khai.\nXóa Bucket Policy Truy cập vào bảng điều khiển quản lý dịch vụ S3 Chọn nhóm của bạn và trong tab Quyền Chọn Chính sách nhóm Xóa để xóa chính sách bucket policy Chính sách nhóm bây giờ sẽ trống.\nBật Chặn quyền truy cập công khai Chọn Block public access và bật cài đặt Block all public access setting.\nChọn Edit. Tích vào Block all public access.\nBấm vào Save changes. Kiểm tra trên trình duyệt Bây giờ nếu bạn cố truy cập trang HTML, bạn sẽ gặp lỗi Truy cập bị từ chối dưới dạng truy cập ẩn danh.\nThử mở link S3: https://ws1-cloudfront.s3.amazonaws.com/test.html Thử mở link CDN: https://d2s62os8tlfgfh.cloudfront.net/test.html "
 },
 {
 	"uri": "//localhost:1313/vi/3-cloudfronts3/3.2-testing/",
@@ -109,7 +109,7 @@
 	"title": "Cải thiện bảo mật với OAC",
 	"tags": [],
 	"description": "",
-	"content": "Với thiết lập hiện tại, S3 bucket là công khai. Vì vậy, bất cứ ai cũng có thể trực tiếp đến xem nội dung. Trong phòng thử nghiệm này, chúng ta sẽ:\nXóa quyền truy cập ẩn danh và chỉ cho phép yêu cầu từ CloudFront. Cấp quyền CloudFront Distribution để đọc S3 origin Xóa chính sách Nhóm khỏi nhóm S3 và chặn quyền truy cập công khai.\nNội dung: Cho phép chặn quyền truy cập công khai Cấp quyền CloudFront Distribution để đọc S3 origin "
+	"content": "Với thiết lập hiện tại, S3 bucket là công khai. Vì vậy, bất cứ ai cũng có thể trực tiếp đến xem nội dung. Trong phòng thử nghiệm này, chúng ta sẽ:\nXóa quyền truy cập ẩn danh và chỉ cho phép yêu cầu từ CloudFront. Cấp quyền CloudFront Distribution để đọc S3 origin Xóa Bucket policy khỏi nhóm S3 và chặn quyền truy cập công khai.\nNội dung: Cho phép chặn quyền truy cập công khai Cấp quyền CloudFront Distribution để đọc S3 origin "
 },
 {
 	"uri": "//localhost:1313/vi/6-cleanup/",

@@ -27,6 +27,18 @@
                 href="//localhost:1313/vi/4-cloudfrontcache/4.1-configurecache/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/2-prerequiste/2.1-creates3/</loc>
     <xhtml:link
                 rel="alternate"
@@ -109,18 +121,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="//localhost:1313/vi/2-prerequiste/2.1-creates3/2.1.2-grantread/"
-                />
-  </url><url>
-    <loc>//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/3-cloudfronts3/3.2-testing/</loc>

@@ -39,6 +39,18 @@
                 href="//localhost:1313/2-prerequiste/2.1-creates3/2.1.1-creates3/"
                 />
   </url><url>
+    <loc>//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/"
+                />
+  </url><url>
     <loc>//localhost:1313/1-introduce/</loc>
     <xhtml:link
                 rel="alternate"
@@ -73,18 +85,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/3-cloudfronts3/3.1-setupdistribution/"
-                />
-  </url><url>
-    <loc>//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/5-improvesecurityoac/5.1-enableblockpublic/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/5-improvesecurityoac/5.1-enableblockpublic/"
                 />
   </url><url>
     <loc>//localhost:1313/5-improvesecurityoac/5.2-grantpermissionread/</loc>
