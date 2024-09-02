@@ -11,7 +11,7 @@ pre : " <b> 2.1.1 </b> "
 1. Go to [S3 service management console](https://console.aws.amazon.com/s3/home)
    + Click **Buckets**.
    + Click **Create bucket**.
-![S3](/images/2.prerequisite/2.2.1-S3console.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.2.1-S3console.png)
 
 2. At the **Create S3** page.
    Fill information required in “Create bucket” form
@@ -21,9 +21,9 @@ pre : " <b> 2.1.1 </b> "
    + Tick on warning box to confirm allow public access.
     > I acknowledge that the current settings might result in this bucket and the objects within becoming public
    + Click on **Create bucket** button to create it.
-![S3](/images/2.prerequisite/2.1.1-bucketname.png)
-![S3](/images/2.prerequisite/2.1.1-untickblock.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.1-bucketname.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.1-untickblock.png)
 
   
 3. Create successfully
-![S3](/images/2.prerequisite/2.1.1-createS3sucess.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.1-createS3sucess.png)

@@ -11,7 +11,7 @@ pre : " <b> 2.1.1 </b> "
 1. Truy cập [giao diện quản trị dịch vụ S3](https://console.aws.amazon.com/s3/home)
   + Chọn **Buckets**.
   + Chọn **Create bucket**.
-![S3](/images/2.prerequisite/2.2.1-S3console.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.2.1-S3console.png)
 
 2. Tại trang **Create S3**.
   Điền thông tin cần thiết vào biểu mẫu "Create bucket"
@@ -22,9 +22,9 @@ pre : " <b> 2.1.1 </b> "
   > I acknowledge that the current settings might result in this bucket and the objects within becoming public
   + Nhấp vào nút **Create bucket** để tạo nó.
 
-![S3](/images/2.prerequisite/2.1.1-bucketname.png)
-![S3](/images/2.prerequisite/2.1.1-untickblock.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.1-bucketname.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.1-untickblock.png)
 
   
 1. Tạo thành công
-![S3](/images/2.prerequisite/2.1.1-createS3sucess.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.1-createS3sucess.png)

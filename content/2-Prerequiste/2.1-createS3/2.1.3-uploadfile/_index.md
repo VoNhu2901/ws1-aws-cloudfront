@@ -10,7 +10,7 @@ pre : " <b> 2.1.3 </b> "
 
 1. At the **ws1-cloudfront** page
   + Choose **Upload** button.
-![S3](/images/2.prerequisite/2.1.3-upload-console.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.3-upload-console.png)
 
 2. At the **Upload** page.
    + Choose **Add files** button
@@ -21,10 +21,10 @@ pre : " <b> 2.1.3 </b> "
   [cf-test-image.png](/attachment/2.1.3-upload-file/cf-test-image.png)
 
 
-![S3](/images/2.prerequisite/2.1.3-upload-file.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.3-upload-file.png)
 
 1. Let’s view the **test.html** page and make sure we can see the page.
    + Copy url
-![S3](/images/2.prerequisite/2.1.3-test-html.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.3-test-html.png)
    + Open it in browser
-![S3](/images/2.prerequisite/2.1.3-test-success.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.3-test-success.png)

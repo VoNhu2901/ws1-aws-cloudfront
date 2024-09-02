@@ -10,23 +10,23 @@ pre : " <b> 2.1.2 </b> "
 
 1. Nhấp vào Bucket
   + Nhấp vào **ws1-cloudfront** bucket đã tạo trước đó.
-![S3](/images/2.prerequisite/2.1.2-selects3.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-selects3.png)
 
 2. Tại trang **ws1-cloudfront**
   + Chọn tab **Permissions**.
   + Cuộn đến **Bucket policy** và chọn nút "Edit".
-![S3](/images/2.prerequisite/2.1.2-select-edit.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-select-edit.png)
 
 3. Tại trang **Edit bucket policy**
   - Copy Bucket ARN để dán vào Generator
   - Nhấp vào **Policy generator** để tạo chính sách.
-![S3](/images/2.prerequisite/2.1.2-copy-arn.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-copy-arn.png)
 
 1. Tại trang **AWS Policy Generator**
   + Điền thông tin vào biểu mẫu như bên dưới.
-![S3](/images/2.prerequisite/2.1.2-generate-policy.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-generate-policy.png)
   + Chọn nút "Generate" sau đó sẽ hiển thị một cửa sổ bật lên có chính sách và sao chép chúng.
-![S3](/images/2.prerequisite/2.1.2-copy-policy.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-copy-policy.png)
 
 {{% notice note %}}
 Thêm một câu lệnh khác `arn:aws:s3:::ws1-cloudfront/*` trên tập lệnh như bên dưới
@@ -57,4 +57,4 @@ Thêm một câu lệnh khác `arn:aws:s3:::ws1-cloudfront/*` trên tập lệnh
 5. Quay lại trang **Edit bucket policy**
   + Dán chính sách đó
   + Bấm vào **Save changes** để lưu thông tin.
-![S3](/images/2.prerequisite/2.1.2-paste-policy.png)
+![S3](/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-paste-policy.png)

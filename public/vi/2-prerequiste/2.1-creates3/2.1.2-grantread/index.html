@@ -12,21 +12,21 @@
     <title>Cấp quyền truy cập đọc :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1725287971" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1725287971" rel="stylesheet">
-    <link href="/css/hybrid.css?1725287971" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1725287971" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1725287971" rel="stylesheet">
-    <link href="/css/auto-complete.css?1725287971" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1725287971" rel="stylesheet">
-    <link href="/css/theme.css?1725287971" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1725287971" rel="stylesheet">
+    <link href="/css/nucleus.css?1725292549" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725292549" rel="stylesheet">
+    <link href="/css/hybrid.css?1725292549" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725292549" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725292549" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725292549" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725292549" rel="stylesheet">
+    <link href="/css/theme.css?1725292549" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725292549" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1725287971" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1725292549" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1725287971"></script>
+    <script src="/js/jquery-3.3.1.min.js?1725292549"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1725287971"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1725287971"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1725292549"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725292549"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1725287971"></script>
+<script type="text/javascript" src="/js/search.js?1725292549"></script>
 
     
   </div>
@@ -766,7 +766,7 @@
 </ol>
 <ul>
 <li>Nhấp vào <strong>ws1-cloudfront</strong> bucket đã tạo trước đó.
-<img alt="S3" src="/images/2.prerequisite/2.1.2-selects3.png"></li>
+<img alt="S3" src="/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-selects3.png"></li>
 </ul>
 <ol start="2">
 <li>Tại trang <strong>ws1-cloudfront</strong></li>
@@ -774,7 +774,7 @@
 <ul>
 <li>Chọn tab <strong>Permissions</strong>.</li>
 <li>Cuộn đến <strong>Bucket policy</strong> và chọn nút &ldquo;Edit&rdquo;.
-<img alt="S3" src="/images/2.prerequisite/2.1.2-select-edit.png"></li>
+<img alt="S3" src="/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-select-edit.png"></li>
 </ul>
 <ol start="3">
 <li>Tại trang <strong>Edit bucket policy</strong></li>
@@ -782,16 +782,16 @@
 <ul>
 <li>Copy Bucket ARN để dán vào Generator</li>
 <li>Nhấp vào <strong>Policy generator</strong> để tạo chính sách.
-<img alt="S3" src="/images/2.prerequisite/2.1.2-copy-arn.png"></li>
+<img alt="S3" src="/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-copy-arn.png"></li>
 </ul>
 <ol>
 <li>Tại trang <strong>AWS Policy Generator</strong></li>
 </ol>
 <ul>
 <li>Điền thông tin vào biểu mẫu như bên dưới.
-<img alt="S3" src="/images/2.prerequisite/2.1.2-generate-policy.png"></li>
+<img alt="S3" src="/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-generate-policy.png"></li>
 <li>Chọn nút &ldquo;Generate&rdquo; sau đó sẽ hiển thị một cửa sổ bật lên có chính sách và sao chép chúng.
-<img alt="S3" src="/images/2.prerequisite/2.1.2-copy-policy.png"></li>
+<img alt="S3" src="/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-copy-policy.png"></li>
 </ul>
 
 <div class="notices note" ><p>Thêm một câu lệnh khác <code>arn:aws:s3:::ws1-cloudfront/*</code> trên tập lệnh như bên dưới</p>
@@ -822,7 +822,7 @@
 <ul>
 <li>Dán chính sách đó</li>
 <li>Bấm vào <strong>Save changes</strong> để lưu thông tin.
-<img alt="S3" src="/images/2.prerequisite/2.1.2-paste-policy.png"></li>
+<img alt="S3" src="/ws1-aws-cloudfront/images/2.prerequisite/2.1.2-paste-policy.png"></li>
 </ul>
 
 
@@ -1159,19 +1159,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1725287971"></script>
-    <script src="/js/perfect-scrollbar.min.js?1725287971"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1725287971"></script>
-    <script src="/js/jquery.sticky.js?1725287971"></script>
-    <script src="/js/featherlight.min.js?1725287971"></script>
-    <script src="/js/highlight.pack.js?1725287971"></script>
+    <script src="/js/clipboard.min.js?1725292549"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725292549"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725292549"></script>
+    <script src="/js/jquery.sticky.js?1725292549"></script>
+    <script src="/js/featherlight.min.js?1725292549"></script>
+    <script src="/js/highlight.pack.js?1725292549"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1725287971"></script>
-    <script src="/js/learn.js?1725287971"></script>
-    <script src="/js/hugo-learn.js?1725287971"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725292549"></script>
+    <script src="/js/learn.js?1725292549"></script>
+    <script src="/js/hugo-learn.js?1725292549"></script>
 
-    <link href="/mermaid/mermaid.css?1725287971" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1725287971"></script>
+    <link href="/mermaid/mermaid.css?1725292549" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725292549"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
