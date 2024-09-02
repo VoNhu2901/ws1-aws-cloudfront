@@ -10,16 +10,16 @@ pre : " <b> 3.1. </b> "
   + Bấm vào **Distribution**.
   + Bấm vào **Create distribution**.
 
-![Distribution](/images/3.connect/3.1-distribution-console.png)
+![Distribution](/ws1-aws-cloudfront/images/3.connect/3.1-distribution-console.png)
 
 2. Tại trang **Create distribution**
   + Bấm vào **Origin domain** để chọn **S3 bucket**.
   + Để mặc định mọi thứ.
   + Bấm vào **Create distribution**. Một bản distribution sẽ được tạo ra sau đó.
-![Distribution](/images/3.connect/3.1-select-origin.png)
+![Distribution](/ws1-aws-cloudfront/images/3.connect/3.1-select-origin.png)
 
 Đã tạo thành công!!!
-![Distribution](/images/3.connect/3.1-created-distribution.png)
+![Distribution](/ws1-aws-cloudfront/images/3.connect/3.1-created-distribution.png)
 {{% notice info %}}
 Sẽ mất khoảng 5 đến 10 phút để quá trình phân phối chuyển từ trạng thái đang tiến hành sang trạng thái đã triển khai.
 {{% /notice %}}

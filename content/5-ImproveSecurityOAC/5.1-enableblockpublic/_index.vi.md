@@ -15,27 +15,27 @@ Xóa Bucket policy khỏi nhóm S3 và bật chặn quyền truy cập công kha
   + Chọn nhóm của bạn và trong tab  **Permission**
   + Chọn **Bucket Policy**
   + Bấm vào **Delete** để xóa chính sách bucket policy
-![S3](/images/5.fwd/5.1-permission-console.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.1-permission-console.png)
 
 {{% notice note %}}
 Bucket Policy bây giờ sẽ trống.
 {{% /notice %}}
-![S3](/images/5.fwd/5.1-deleted-policy.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.1-deleted-policy.png)
 
 #### Bật Block public access
 Chọn Block public access và bật cài đặt Block all public access setting. 
    + Chọn **Edit**.
-![S3](/images/5.fwd/5.1-block-public-console.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.1-block-public-console.png)
 
    + Tích vào **Block all public access**.
    + Bấm vào **Save changes**.
-![S3](/images/5.fwd/5.1-edit-block.png)
-![S3](/images/5.fwd/5.1-blocked-public.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.1-edit-block.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.1-blocked-public.png)
 
 #### Kiểm tra trên trình duyệt
 Bây giờ nếu bạn cố truy cập trang HTML, bạn sẽ gặp lỗi Truy cập bị từ chối dưới dạng truy cập ẩn danh.
 - Thử mở link S3: `https://ws1-cloudfront.s3.amazonaws.com/test.html`
-![S3](/images/5.fwd/5.1-cannot-s3.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.1-cannot-s3.png)
 
    Thử mở link CDN: `https://d2s62os8tlfgfh.cloudfront.net/test.html`
-![S3](/images/5.fwd/5.1-cannot-cdn.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.1-cannot-cdn.png)

@@ -15,25 +15,25 @@ Delete Bucket policy from the S3 bucket and enable block public access.
   + Click on **Origins**.
   + Choose your origin.
   + Click on **Edit**.
-![CDN](/images/5.fwd/5.2-origin-console.png)
+![CDN](/ws1-aws-cloudfront/images/5.fwd/5.2-origin-console.png)
 
 2. At the **Edit origin** page
   + Select **Origin access control settings (recommended)**.
   + Click on **Create new OAC**. 
-![CDN](/images/5.fwd/5.2-edit-origin.png)
+![CDN](/ws1-aws-cloudfront/images/5.fwd/5.2-edit-origin.png)
   + Create Control setting, enter **Name**: `OAC-VN-S3`.
   + Click on **Create**. 
-![CDN](/images/5.fwd/5.2-create-oac.png)
+![CDN](/ws1-aws-cloudfront/images/5.fwd/5.2-create-oac.png)
    + Click on **Save changes**.
   
 Create successfully!!!
-![CDN](/images/5.fwd/5.2-created-origin.png)
+![CDN](/ws1-aws-cloudfront/images/5.fwd/5.2-created-origin.png)
 
 
 Giving CloudFront permission to access the S3 bucket. 
    + Go to CDN, click **Edit** of origin 
    + Click on “Copy policy”.
-![CDN](/images/5.fwd/5.2-copy-policy.png)
+![CDN](/ws1-aws-cloudfront/images/5.fwd/5.2-copy-policy.png)
    + Go to S3 bucket, paste this code to Bucket Policy in S3.
 ```json
 {
@@ -57,17 +57,17 @@ Giving CloudFront permission to access the S3 bucket.
         ]
       }
 ```
-![S3](/images/5.fwd/5.2-paste-cdn-s3.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.2-paste-cdn-s3.png)
    + Click on **Save changes**
   
 {{% notice info %}}
 Now if we access page from the S3 Object URL, we still cannot access because we only allow access from CloudFront.
 {{% /notice %}}
 - Try opening link S3: `https://ws1-cloudfront.s3.amazonaws.com/test.html`
-![S3](/images/5.fwd/5.2-cannot-s3.png)
+![S3](/ws1-aws-cloudfront/images/5.fwd/5.2-cannot-s3.png)
 
 {{% notice info %}}
 We can access test.html from CloudFront.
 {{% /notice %}}
 - Try opening link CDN: `https://d2s62os8tlfgfh.cloudfront.net/test.html`
-![CDN](/images/5.fwd/5.2-can-cdn.png)
+![CDN](/ws1-aws-cloudfront/images/5.fwd/5.2-can-cdn.png)

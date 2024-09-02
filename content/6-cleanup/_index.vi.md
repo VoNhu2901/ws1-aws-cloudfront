@@ -17,10 +17,10 @@ Chúng ta sẽ tiến hành các bước sau để xóa các tài nguyên chúng
    + Bấm **Exit**.
 
    + Sau khi xóa hết các đối tượng trong nhóm nhấn **Delete**
-![Clean](/images/6.clean/6-delete-s3-console.png)
+![Clean](/ws1-aws-cloudfront/images/6.clean/6-delete-s3-console.png)
 
    + Nhập tên của S3 bucket, sau đó nhấp vào **Delete bucket** để tiến hành xóa S3 bucket.
-![Clean](/images/6.clean/6.delete-bucket.png)
+![Clean](/ws1-aws-cloudfront/images/6.clean/6.delete-bucket.png)
 
 
 #### Xóa CloudFront
@@ -28,26 +28,26 @@ Chúng ta sẽ tiến hành các bước sau để xóa các tài nguyên chúng
    + Nhấp vào **Distributions** mà chúng ta đã tạo cho phòng thí nghiệm này. (Ví dụ: E2YGKQ4RKCO9LA)
    + Bấm vào **Disable**.
    + Pop-up sẽ hiện ra, bạn nhấn **Disable** để tiến hành tắt.
-![Clean](/images/6.clean/6-cdn-disable.console.png)
+![Clean](/ws1-aws-cloudfront/images/6.clean/6-cdn-disable.console.png)
    
    + Bấm vào **Distributions**.
    + Bấm vào tab **Behavior**.
    + Bấm vào **Delete**.
-![Clean](/images/6.clean/6-cdn-delete-behavior.png)
+![Clean](/ws1-aws-cloudfront/images/6.clean/6-cdn-delete-behavior.png)
 
    + Bấm vào tab **Policies**.
    + Bấm vào **Custom policies**.
    + Bấm vào **Delete**.
-![Clean](/images/6.clean/6-cnd-delete-cache.png)
+![Clean](/ws1-aws-cloudfront/images/6.clean/6-cnd-delete-cache.png)
 
    + Bấm vào tab **Origin access**
    + Chọn origin của bạn.
    + Bấm **Delete**.
-![Clean](/images/6.clean/6.cdn-delete-origin.png)
+![Clean](/ws1-aws-cloudfront/images/6.clean/6.cdn-delete-origin.png)
 
    + Cuối cùng quay lại **Distributions**
    + Chọn distribution của bạn
    + Bấm **Delete**.
-![Clean](/images/6.clean/6-cdn-delete-distribution.png)
+![Clean](/ws1-aws-cloudfront/images/6.clean/6-cdn-delete-distribution.png)
 
 Cảm ơn đã xem!!!
